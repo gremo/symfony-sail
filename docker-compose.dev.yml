@@ -1,0 +1,30 @@
+services:
+  caddy:
+    image: ${COMPOSE_PROJECT_NAME}-caddy-dev
+    build:
+      target: caddy_dev
+    environment:
+      CADDY_ADMIN_OPTION: ${CADDY_ADMIN_OPTION:-}
+      CADDY_DEBUG_OPTION: ${CADDY_DEBUG_OPTION:-debug}
+    volumes:
+      - ./.docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./public/:/srv/public
+
+  php:
+    image: ${COMPOSE_PROJECT_NAME}-php-dev
+    build:
+      target: php_dev
+      args:
+        NODE_VERSION: ${NODE_VERSION}
+    volumes:
+      - ./.:/var/www/html
+      - ./.docker/php/conf.d/app.ini:/usr/local/etc/php/conf.d/zz-app.ini:ro
+      - ./.docker/php/php-fpm.d/zz-docker.conf:/usr/local/etc/php-fpm.d/zz-docker.conf:ro
+      - node_modules:/var/www/html/node_modules
+      - var:/var/www/html/var
+      - vendor:/var/www/html/vendor
+
+volumes:
+  node_modules:
+  var:
+  vendor:

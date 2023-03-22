@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  caddy:
+    build:
+      context: ./
+      args:
+        CADDY_VERSION: ${CADDY_VERSION}
+    environment:
+      SERVER_NAME: ${SERVER_NAME:-":80"}
+      TZ: ${TZ:-UTC}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - php_socket:/run/php
+  php:
+    build:
+      context: ./
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+        COMPOSER_VERSION: ${COMPOSER_VERSION}
+        TIMEZONE: ${TZ:-UTC}
+    environment:
+      TZ: ${TZ:-UTC}
+    volumes:
+      - php_socket:/run/php
+
+  db:
+    image: mariadb:10.7
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      TZ: ${TZ:-UTC}
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "true"
+
+volumes:
+  caddy_config:
+  caddy_data:
+  php_socket:
+  db_data:

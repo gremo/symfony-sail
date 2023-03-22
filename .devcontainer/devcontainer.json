@@ -1,0 +1,29 @@
+{
+  "dockerComposeFile": [
+    "./../docker-compose.yml",
+    "./../docker-compose.dev.yml"
+  ],
+  "service": "php",
+  "workspaceFolder": "/var/www/html",
+  "forwardPorts": ["caddy:80", "db:3306"],
+  "updateContentCommand": {
+    "composer install": "if [ -f composer.json ]; then composer install; fi;",
+    "yarn install": "if [ -f package.json ]; then yarn install --no-progress; fi;"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.exclude": {
+          ".devcontainer/": true,
+          ".docker/": true,
+          "node_modules/": true,
+          "var/": true,
+          "vendor/": true,
+          ".dockerignore": true,
+          "docker-compose*": true,
+          "Dockerfile": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+	{$CADDY_ADMIN_OPTION} 
+	{$CADDY_DEBUG_OPTION}
+}
+
+{$SERVER_NAME}
+
+route {
+	root * /srv/public
+	vulcain
+	php_fastcgi unix//run/php/php-fpm.sock {
+		root /var/www/html/public
+	}
+	encode zstd gzip
+	file_server
+}

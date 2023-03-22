@@ -1,0 +1,19 @@
+services:
+  caddy:
+    image: ${COMPOSE_PROJECT_NAME}-caddy-prod
+    build:
+      target: caddy_prod
+      args:
+        NODE_VERSION: ${NODE_VERSION}
+    environment:
+      CADDY_ADMIN_OPTION: ${CADDY_ADMIN_OPTION:-admin off}
+      CADDY_DEBUG_OPTION: ${CADDY_DEBUG_OPTION:-}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+
+  php:
+    image: ${COMPOSE_PROJECT_NAME}-php-prod
+    build:
+      target: php_prod
