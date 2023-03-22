@@ -1,0 +1,13 @@
+{
+    "semi": true,
+    "singleQuote": true,
+    "quoteProps": "consistent",
+    "overrides": [
+        {
+            "files": "*.{yml,yaml}",
+            "options": {
+                "printWidth": 120
+            }
+        }
+    ]
+}

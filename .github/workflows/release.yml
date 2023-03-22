@@ -1,0 +1,103 @@
+name: Release
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - '.devcontainer/devcontainer.json'
+            - '.github/workflows/release.yaml'
+            - 'config/**'
+            - '.distignore'
+            - '.dockerignore'
+            - 'docker-compose.*'
+            - 'Dockerfile'
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        name: ${{ matrix.filename }}
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - { mariadb: true, production: true, vsconfig: true, filename: symfony-sail.zip }
+                    - { mariadb: true, production: true, vsconfig: false, filename: symfony-sail-v.zip }
+                    - { mariadb: true, production: false, vsconfig: true, filename: symfony-sail-p.zip }
+                    - { mariadb: true, production: false, vsconfig: false, filename: symfony-sail-pv.zip }
+                    - { mariadb: false, production: true, vsconfig: true, filename: symfony-sail-d.zip }
+                    - { mariadb: false, production: true, vsconfig: false, filename: symfony-sail-dv.zip }
+                    - { mariadb: false, production: false, vsconfig: true, filename: symfony-sail-dp.zip }
+                    - { mariadb: false, production: false, vsconfig: false, filename: symfony-sail-dpv.zip }
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Uncomment EJS
+              run: |
+                  sed -i 's/\/\/ejs //' .devcontainer/devcontainer.json
+                  sed -i 's/#ejs //' docker-compose.* Dockerfile
+
+            - name: Render .devcontainer/devcontainer.json
+              uses: jaywcjlove/action-ejs@main
+              with:
+                  template-file: .devcontainer/devcontainer.json
+                  output: .devcontainer/devcontainer.json
+                  vars: '${{ toJson(matrix) }}'
+
+            - name: Render docker-compose.dev.yml
+              uses: jaywcjlove/action-ejs@main
+              with:
+                  template-file: docker-compose.dev.yml
+                  output: docker-compose.dev.yml
+                  vars: '${{ toJson(matrix) }}'
+
+            - name: Render docker-compose.override.yml
+              uses: jaywcjlove/action-ejs@main
+              with:
+                  template-file: docker-compose.override.yml
+                  output: docker-compose.override.yml
+                  vars: '${{ toJson(matrix) }}'
+
+            - name: Render docker-compose.yml
+              uses: jaywcjlove/action-ejs@main
+              with:
+                  template-file: docker-compose.yml
+                  output: docker-compose.yml
+                  vars: '${{ toJson(matrix) }}'
+
+            - name: Render Dockerfile
+              uses: jaywcjlove/action-ejs@main
+              with:
+                  template-file: Dockerfile
+                  output: Dockerfile
+                  vars: '${{ toJson(matrix) }}'
+
+            - name: Change .distignore
+              run: |
+                  if ! ${{ matrix.mariadb }}; then
+                      echo "config/docker/mariadb.cnf" >> .distignore
+                  fi
+                  if ! ${{ matrix.vsconfig }}; then
+                      echo ".editorconfig" >> .distignore
+                      echo ".prettierignore" >> .distignore
+                      echo ".prettierrc" >> .distignore
+                  fi
+                  if ! ${{ matrix.production }}; then
+                      echo ".dockerignore" >> .distignore
+                      echo "docker-compose.override.yml" >> .distignore
+                  fi
+
+            - name: Delete using .distignore
+              run: xargs rm -rf < .distignore
+
+            - name: Create archive
+              run: zip -r9 ${{ matrix.filename }} .
+
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  prerelease: true
+                  tag_name: latest
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  files: ${{ matrix.filename }}

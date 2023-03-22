@@ -1,0 +1,12 @@
+**/.gitignore
+*.md
+.devcontainer/
+.git/
+.vscode/
+node_modules/
+var/
+vendor/
+.dockerignore
+.gitignore
+docker-compose.*
+Dockerfile

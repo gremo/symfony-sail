@@ -1,0 +1,32 @@
+services:
+    caddy:
+        image: ${IMAGE_PREFIX:-}${COMPOSE_PROJECT_NAME}-caddy-dev
+        build:
+            target: caddy-dev
+        volumes:
+            - ./config/docker/Caddyfile:/etc/caddy/Caddyfile:ro
+            - ./public/:/srv/public:ro
+
+    php:
+        image: ${IMAGE_PREFIX:-}${COMPOSE_PROJECT_NAME}-php-dev
+        build:
+            target: php-dev
+        volumes:
+            - node_modules:/var/www/html/node_modules
+            - var:/var/www/html/var
+            - vendor:/var/www/html/vendor
+            - ./config/docker/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-app.conf:ro
+            - ./config/docker/php.ini:/usr/local/etc/php/conf.d/zz-app.ini:ro
+            - ./.:/var/www/html
+    #ejs <%_ if (mariadb) { %>
+    db:
+        image: ${IMAGE_PREFIX:-}${COMPOSE_PROJECT_NAME}-mariadb-dev
+        build:
+            target: mariadb-dev
+        volumes:
+            - ./config/docker/mariadb.cnf:/etc/mysql/mariadb.conf.d/80-app.cnf:ro
+    #ejs <%_ } %>
+volumes:
+    node_modules:
+    var:
+    vendor:

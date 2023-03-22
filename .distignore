@@ -1,0 +1,8 @@
+.git/
+.github/
+docker/
+public/
+.distignore
+.gitignore
+LICENSE
+README.md

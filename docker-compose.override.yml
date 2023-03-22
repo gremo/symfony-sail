@@ -1,0 +1,65 @@
+services:
+    caddy:
+        image: ${IMAGE_PREFIX:-}${COMPOSE_PROJECT_NAME}-caddy-prod
+        build:
+            target: caddy-prod
+            args:
+                PHP_VERSION: ${PHP_VERSION:-8}
+                PHP_EXTENSIONS: ${PHP_EXTENSIONS:-}
+                COMPOSER_VERSION: ${COMPOSER_VERSION:-lts}
+                NODE_VERSION: ${NODE_VERSION:-lts}
+        volumes:
+            - public_media:/srv/public/media:ro
+            - public_uploads:/srv/public/uploads:ro
+        ports:
+            - '80:80'
+            - '443:443'
+            - '443:443/udp'
+        depends_on:
+            php:
+                condition: service_healthy
+        restart: unless-stopped
+
+    php:
+        image: ${IMAGE_PREFIX:-}${COMPOSE_PROJECT_NAME}-php-prod
+        build:
+            target: php-prod
+            args:
+                NODE_VERSION: ${NODE_VERSION:-lts}
+        volumes:
+            - public_media:/var/www/html/public/media
+            - public_uploads:/var/www/html/public/uploads
+        environment:
+            APP_ENV: prod
+        #ejs <%_ if (mariadb) { _%>
+        depends_on:
+            db:
+                condition: service_healthy
+        #ejs <%_ } _%>
+        healthcheck:
+            test: 'FCGI_CONNECT=/var/run/php/php-fpm.sock /usr/local/bin/healthcheck.sh'
+            start_period: ${HEALTHCHECK_WAIT:-5s}
+            timeout: 5s
+            interval: 5s
+            retries: ${HEALTHCHECK_RETRIES:-5}
+        restart: unless-stopped
+    #ejs <%_ if (mariadb) { %>
+    db:
+        image: ${IMAGE_PREFIX:-}${COMPOSE_PROJECT_NAME}-mariadb-prod
+        build:
+            target: mariadb-prod
+        environment:
+            APP_ENV: prod
+        ports:
+            - '3306:3306'
+        healthcheck:
+            test: ['CMD', '/usr/local/bin/healthcheck.sh', '--su-mysql', '--connect', '--innodb_initialized']
+            start_period: ${HEALTHCHECK_WAIT:-5s}
+            timeout: 5s
+            interval: 5s
+            retries: ${HEALTHCHECK_RETRIES:-5}
+        restart: unless-stopped
+    #ejs <%_ } %>
+volumes:
+    public_media:
+    public_uploads:

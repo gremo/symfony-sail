@@ -1,0 +1,18 @@
+name: Update TOC
+
+on:
+    push:
+        paths:
+            - 'README.md'
+            - '.github/workflows/update-toc.yaml'
+
+jobs:
+    generate:
+        name: Generate
+        runs-on: ubuntu-latest
+        steps:
+            - uses: technote-space/toc-generator@v4
+              with:
+                  TOC_TITLE: null
+                  COMMIT_MESSAGE: 'chore(docs): Update TOC'
+                  MAX_HEADER_LEVEL: 2

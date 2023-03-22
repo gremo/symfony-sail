@@ -1,0 +1,2 @@
+# This file contains configuration for both development and production environments.
+# To override production settings, create a mariadb.prod.cnf file in this folder.

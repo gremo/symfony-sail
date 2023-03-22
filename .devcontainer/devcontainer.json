@@ -1,0 +1,144 @@
+{
+  "name": "${localWorkspaceFolderBasename}",
+  "dockerComposeFile": [
+    "./../docker-compose.yml",
+    "./../docker-compose.dev.yml"
+  ],
+  "service": "php",
+  "workspaceFolder": "/var/www/html",
+  "forwardPorts": [
+    "caddy:80",
+    //ejs <%_ if (mariadb) { _%>
+    "db:3306"
+    //ejs <%_ } _%>
+  ],
+  //ejs <%_ if (vsconfig) { _%>
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "[php]": {
+          "editor.defaultFormatter": "ValeryanM.vscode-phpsab"
+        },
+        "auto-close-tag.activationOnLanguage": ["*"],
+        "auto-close-tag.enableAutoCloseSelfClosingTag": true,
+        "auto-close-tag.enableAutoCloseTag": true,
+        "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
+        "auto-rename-tag.activationOnLanguage": ["*"],
+        "composer.inlayVersionEnabled": false,
+        "css.validate": false,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": true
+        },
+        "editor.codeLens": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.linkedEditing": false,
+        "ego.power-tools": {
+          "buttons": [
+            {
+              "text": "$(terminal) Composer",
+              "tooltip": "Show Composer commands",
+              "action": {
+                "type": "command",
+                "command": "workbench.action.quickOpen",
+                "arguments": [">Composer"]
+              }
+            },
+            {
+              "text": "$(terminal) Yarn",
+              "tooltip": "Show Yarn commands",
+              "action": {
+                "type": "command",
+                "command": "workbench.action.quickOpen",
+                "arguments": [">Yarn"]
+              }
+            }
+          ]
+        },
+        "emmet.includeLanguages": {
+          "twig": "html"
+        },
+        "files.associations": {
+          //ejs <%_ if (production) { _%>
+          ".dockerignore": "ignore",
+          //ejs <%_ } _%>
+          ".env.*.local": "dotenv",
+          ".env.*": "dotenv",
+          ".env": "dotenv",
+          "*.caddyfile": "plaintext",
+          "*.Caddyfile": "plaintext",
+          "caddyfile": "plaintext",
+          "Caddyfile": "plaintext",
+          //ejs <%_ if (mariadb) { _%>
+          "mariadb.cnf": "ini",
+          //ejs <%_ } _%>
+          "php-fpm.conf": "ini"
+        },
+        "files.exclude": {
+          "node_modules/": true,
+          "public/build/": true,
+          "public/bundles/": true,
+          "public/media/": true,
+          "public/uploads/": true,
+          "var/": true,
+          "vendor/": true
+        },
+        "files.trimTrailingWhitespace": false,
+        "html.autoClosingTags": false,
+        "intelephense.diagnostics.enable": false,
+        "intelephense.environment.phpVersion": "${containerEnv:PHP_VERSION}",
+        "intelephense.format.enable": true,
+        "intelephense.telemetry.enabled": false,
+        "javascript.autoClosingTags": false,
+        "less.validate": false,
+        "php.suggest.basic": false,
+        "php.validate.enable": false,
+        "phpsab.autoRulesetSearch": true,
+        "phpsab.executablePathCBF": "vendor/bin/phpcbf",
+        "phpsab.executablePathCS": "vendor/bin/phpcs",
+        "phpsab.fixerEnable": true,
+        "phpsab.snifferEnable": true,
+        "phpsab.snifferMode": "onType",
+        "phpsab.snifferShowSources": true,
+        "phpsab.standard": "PSR12",
+        "phpstan.enabled": true,
+        "phpstan.path": "vendor/bin/phpstan",
+        "prettier.enable": true,
+        "prettier.resolveGlobalModules": true,
+        "scss.validate": false,
+        "stylelint.enable": true,
+        "todo-tree.filtering.excludeGlobs": [
+          "node_modules/",
+          "public/build/",
+          "public/bundles/",
+          "var/",
+          "vendor/"
+        ],
+        "typescript.autoClosingTags": false,
+        "yarn.runInTerminal": true
+      },
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "dbaeumer.vscode-eslint",
+        "DEVSENSE.composer-php-vscode",
+        "donjayamanne.githistory",
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "gamunu.vscode-yarn",
+        "gruntfuggly.todo-tree",
+        "mblode.twig-language-2",
+        "mikestead.dotenv",
+        "pflannery.vscode-versionlens",
+        "recca0120.vscode-phpunit",
+        "remcohaszing.schemastore",
+        "stylelint.vscode-stylelint",
+        "swordev.phpstan",
+        "ValeryanM.vscode-phpsab",
+        "egomobile.vscode-powertools"
+      ]
+    }
+  }
+  //ejs <%_ } _%>
+}

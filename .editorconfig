@@ -1,0 +1,22 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+end_of_line = lf
+
+[*.{cjs,css,html,js,json,jsx,mjs,cts,ts,tsx}]
+indent_size = 2
+
+[{caddyfile,Caddyfile,*.{Caddyfile,caddyfile}}]
+indent_style = tab
+trim_trailing_whitespace = false
+
+[{composer.json,package.json,webpack.config*.js}]
+indent_size = 4
+
+[.babelrc]
+indent_size = 2

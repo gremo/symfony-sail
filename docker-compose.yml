@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+    caddy:
+        env_file: [.env.local]
+        container_name: ${COMPOSE_PROJECT_NAME}-caddy
+        build:
+            context: ./
+            args:
+                CADDY_VERSION: ${CADDY_VERSION:-2}
+        volumes:
+            - caddy_data:/data
+            - caddy_config:/config
+            - php_socket:/var/run/php
+        depends_on:
+            php:
+                condition: service_started
+
+    php:
+        env_file: [.env.local]
+        container_name: ${COMPOSE_PROJECT_NAME}-php
+        build:
+            context: ./
+            args:
+                PHP_VERSION: ${PHP_VERSION:-8}
+                PHP_EXTENSIONS: ${PHP_EXTENSIONS:-}
+                COMPOSER_VERSION: ${COMPOSER_VERSION:-lts}
+                NODE_VERSION: ${NODE_VERSION:-lts}
+        #ejs <%_ if (!mariadb) { _%>
+        environment:
+            DATABASE_DISABLE_MIGRATIONS: true
+        #ejs <%_ } _%>
+        volumes:
+            - php_socket:/var/run/php
+        #ejs <%_ if (mariadb) { _%>
+        depends_on:
+            db:
+                condition: service_started
+        #ejs <%_ } _%>
+    #ejs <%_ if (mariadb) { %>
+    db:
+        env_file: [.env.local]
+        container_name: ${COMPOSE_PROJECT_NAME}-db
+        build:
+            context: ./
+            args:
+                MARIADB_VERSION: ${MARIADB_VERSION:-10}
+        volumes:
+            - db_data:/var/lib/mysql
+    #ejs <%_ } %>
+volumes:
+    caddy_config:
+    caddy_data:
+    #ejs <%_ if (mariadb) { _%>
+    db_data:
+    #ejs <%_ } _%>
+    php_socket:
