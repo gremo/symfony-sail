@@ -46,8 +46,20 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 
 👇 Table of **contents**:
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [🚀 Quick start](#-quick-start)
+- [🔧 Configuration](#-configuration)
+- [🧑‍🏫 Tools, directories and assumptions](#-tools-directories-and-assumptions)
+- [👨‍💻 Configuring Visual Studio Code](#-configuring-visual-studio-code)
+- [👍 Going to production](#-going-to-production)
+- [❓ FAQ](#-faq)
+- [✋ Common errors](#-common-errors)
+- [🐋 Docker internals](#-docker-internals)
+- [🛟 Contributing](#-contributing)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 🚀 Quick start
 
