@@ -46,6 +46,8 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>👇 Table of <b>contents</b></summary>
 
 - [🚀 Quick start](#-quick-start)
 - [🔧 Configuration](#-configuration)
@@ -57,6 +59,7 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 - [🐋 Docker internals](#-docker-internals)
 - [🛟 Contributing](#-contributing)
 
+</details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 🚀 Quick start
