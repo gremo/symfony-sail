@@ -58,6 +58,7 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 - [✋ Common errors](#-common-errors)
 - [🐋 Docker internals](#-docker-internals)
 - [🛟 Contributing](#-contributing)
+- [📘 License](#-license)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
