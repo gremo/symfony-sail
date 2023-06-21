@@ -49,15 +49,14 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 <details>
 <summary>👇 Table of <b>contents</b></summary>
 
+- [🧑‍🏫 Tools, directories and assumptions](#-tools-directories-and-assumptions)
 - [🚀 Quick start](#-quick-start)
 - [🔧 Configuration](#-configuration)
-- [🧑‍🏫 Tools, directories and assumptions](#-tools-directories-and-assumptions)
 - [👨‍💻 Configuring Visual Studio Code](#-configuring-visual-studio-code)
 - [👍 Going to production](#-going-to-production)
 - [❓ FAQ](#-faq)
-- [✋ Common errors](#-common-errors)
 - [🐋 Docker internals](#-docker-internals)
-- [🛟 Contributing](#-contributing)
+- [❤️ Contributing](#-contributing)
 - [📘 License](#-license)
 
 </details>
