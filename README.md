@@ -715,3 +715,6 @@ New features, ideas and bug fixes are always welcome! In order to contribute to 
 1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) this repository and clone it on your machine
 2. Create a branch `my-awesome-feature` and commit to it
 3. Push `my-awesome-feature` branch to GitHub and open a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
+
+## 📘 License
+Symfony Sail is released under the under terms of the [ISC License](LICENSE).
