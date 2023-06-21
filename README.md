@@ -44,8 +44,6 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 - ✅ Automatic www redirection to non-www version
 - ✅ Timezone works for all services and it's synced with PHP timezone
 
-👇 Table of **contents**:
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 

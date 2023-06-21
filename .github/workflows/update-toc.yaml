@@ -13,6 +13,7 @@ jobs:
         steps:
             - uses: technote-space/toc-generator@v4
               with:
-                  TOC_TITLE: null
+                  TOC_TITLE: 👇 Table of <b>contents</b>
                   COMMIT_MESSAGE: 'chore(docs): Update TOC'
                   MAX_HEADER_LEVEL: 2
+                  FOLDING: true
