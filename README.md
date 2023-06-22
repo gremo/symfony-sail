@@ -40,6 +40,7 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 - ✅ Utilize the existing `.env.local` file that you are already familiar with
 - ✅ Doctrine `DATABASE_URL` parsing, promoting DRY principle
 - ✅ A fully set of Visual Studio Code (opinionated) preconfigured extensions
+- ✅ Open multiple Sail projects simultaneously with automatic port forwarding
 - ✅ Pre-built base images for quick project startup
 - ✅ Automatic www redirection to non-www version
 - ✅ Timezone works for all services and it's synced with PHP timezone
@@ -110,6 +111,8 @@ If you want to dockerize your **existing project**:
 3. Edit your existing `.env.local` file and [configure the environment](#variables)
 4. Reopen the project in the Container
 5. If you have downloaded the VSCode customizations distribution, complete the [configuration of Visual Studio Code](#-configuring-visual-studio-code)
+
+In both cases, your website will be available at [http://localhost](http://localhost).
 
 ## 🔧 Configuration
 
