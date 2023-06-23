@@ -11,7 +11,8 @@ on:
         paths:
             - 'docker/**'
 
-    workflow_dispatch:
+    schedule:
+        - cron: '0 0 * * *'
 
 jobs:
     caddy:
