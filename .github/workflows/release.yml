@@ -92,7 +92,22 @@ jobs:
               run: xargs rm -rf < .distignore
 
             - name: Create archive
-              run: zip -r9 ${{ matrix.filename }} .
+              run: |
+                  zip -z -r9 ${{ matrix.filename }} . <<END
+                  ${{ github.repository }}
+                  ${{ github.server_url }}/${{ github.repository }}
+
+                  Features:
+                    - Database: ${{ matrix.mariadb && 'yes' || 'no' }}
+                    - Production: ${{ matrix.production && 'yes' || 'no' }}
+                    - VSCode: ${{ matrix.vsconfig && 'yes' || 'no' }}
+
+                  Details:
+                    - Tag: ${{ github.ref_name }}
+                    - SHA: ${{ github.sha }}
+                    - Filename: ${{ matrix.filename }}
+
+                  END
 
             - name: Release
               uses: softprops/action-gh-release@v1
