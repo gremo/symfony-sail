@@ -1,0 +1,59 @@
+name: 🐞 Bug report
+description: If something isn't working 🔧
+title: '[Bug]: '
+labels: ['bug']
+body:
+    - type: markdown
+      attributes:
+          value: |
+              **Thanks ❤️ for taking the time to fill out this bug report!** We kindly ask that you search to see if an issue [already exists](https://github.com/gremo/symfony-sail/issues?q=is%3Aissue+label%3Abug+sort%3Acreated-desc+) for the bug.
+
+    - type: dropdown
+      attributes:
+          label: Which configuration is causing the bug?
+          description: Specify whether the errors occur when running the development container (i.e. Visual Studio Code), the production one, or both.
+          options:
+              - Development
+              - Production
+              - Both
+      validations:
+          required: true
+
+    - type: checkboxes
+      attributes:
+          label: What's included in the downloaded distribution?
+          description: Please select all options included in the downloaded distribution.
+          options:
+              - label: Database
+              - label: Production configuration
+              - label: Visual Studio code configuration
+
+    - type: dropdown
+      attributes:
+          label: OS you are running?
+          options:
+              - Windows
+              - Linux
+              - macOS
+              - Other
+      validations:
+          required: true
+
+    - type: input
+      attributes:
+          label: Docker Desktop version?
+          description: Please paste the output of the command `docker version --format '{{.Server.Version}}'`.
+      validations:
+          required: true
+
+    - type: input
+      attributes:
+          label: Visual Studio Code version?
+          description: Please paste the output of the command `code --version`.
+
+    - type: textarea
+      attributes:
+          label: Bug description
+          description: A clear and concise description of the issue you're experiencing and the steps to reproduce.
+      validations:
+          required: true
