@@ -82,14 +82,14 @@ The only requirements are [Docker Desktop](https://www.docker.com/products/docke
 
 | Release                                                                                                     | Database | Production configuration | VSCode configuration |
 | :---------------------------------------------------------------------------------------------------------- | :------: | :----------------------: | :------------------: |
-| [symfony-sail.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail.zip)         | ✅       | ✅                      | ✅                   |
-| [symfony-sail-v.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail-v.zip)     | ✅       | ✅                      | ❌                   |
-| [symfony-sail-p.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail-p.zip)     | ✅       | ❌                      | ✅                   |
-| [symfony-sail-pv.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail-pv.zip)   | ✅       | ❌                      | ❌                   |
-| [symfony-sail-d.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail-d.zip)     | ❌       | ✅                      | ✅                   |
-| [symfony-sail-dv.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail-dv.zip)   | ❌       | ✅                      | ❌                   |
-| [symfony-sail-dp.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail-dp.zip)   | ❌       | ❌                      | ✅                   |
-| [symfony-sail-dpv.zip](https://github.com/gremo/symfony-sail/releases/download/latest/symfony-sail-dpv.zip) | ❌       | ❌                      | ❌                   |
+| [symfony-sail.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail.zip)         | ✅       | ✅                      | ✅                   |
+| [symfony-sail-v.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail-v.zip)     | ✅       | ✅                      | ❌                   |
+| [symfony-sail-p.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail-p.zip)     | ✅       | ❌                      | ✅                   |
+| [symfony-sail-pv.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail-pv.zip)   | ✅       | ❌                      | ❌                   |
+| [symfony-sail-d.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail-d.zip)     | ❌       | ✅                      | ✅                   |
+| [symfony-sail-dv.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail-dv.zip)   | ❌       | ✅                      | ❌                   |
+| [symfony-sail-dp.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail-dp.zip)   | ❌       | ❌                      | ✅                   |
+| [symfony-sail-dpv.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail-dpv.zip) | ❌       | ❌                      | ❌                   |
 
 Want to start developing a **brand-new Symfony project**?
 

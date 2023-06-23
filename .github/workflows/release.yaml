@@ -12,6 +12,8 @@ on:
             - '.dockerignore'
             - 'docker-compose.*'
             - 'Dockerfile'
+        tags:
+            - "v*.*.*"
 
 jobs:
     release:
@@ -112,7 +114,7 @@ jobs:
             - name: Release
               uses: softprops/action-gh-release@v1
               with:
-                  prerelease: true
-                  tag_name: latest
+                  prerelease: ${{ github.ref_name == 'main' }}
+                  tag_name: ${{ github.ref_name == 'main' && 'latest' || github.ref_name }}
                   token: ${{ secrets.GITHUB_TOKEN }}
                   files: ${{ matrix.filename }}
