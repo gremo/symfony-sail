@@ -58,6 +58,8 @@
         "emmet.includeLanguages": {
           "twig": "html"
         },
+        "eslint.enable": true,
+        "eslint.format.enable": true,
         "files.associations": {
           //ejs <%_ if (production) { _%>
           ".dockerignore": "ignore",
@@ -90,6 +92,7 @@
         "intelephense.format.enable": true,
         "intelephense.telemetry.enabled": false,
         "javascript.autoClosingTags": false,
+        "javascript.validate.enable": false,
         "less.validate": false,
         "php.suggest.basic": false,
         "php.validate.enable": false,
