@@ -104,7 +104,6 @@
         "phpstan.enabled": true,
         "phpstan.path": "vendor/bin/phpstan",
         "prettier.enable": true,
-        "prettier.resolveGlobalModules": true,
         "scss.validate": false,
         "stylelint.enable": true,
         "todo-tree.filtering.excludeGlobs": [
