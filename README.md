@@ -21,29 +21,28 @@
 
 > **Warning**: this project is still under development, please use it for testing purposes and feel free to suggest changes and improvements.
 
-This project draws inspiration from the work of [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker). Its goal is to provide a configurable environment and enhanced developer experience. It includes support for **Webpack Encore** and **MariaDB**. Versions without MariaDB and production container are also available!
+This project draws inspiration from the work of [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker). Its goal is to provide a configurable environment and enhanced **developer experience**. It includes support for **Visual Studio Code Dev Containers**, **MariaDB** and **Webpack Encore**. Versions without database, production configuration and Visual Studio Code settings and extensions are also available!
 
 💫 Main **features**:
 
 - ✅ Fully customizable
+  - Sensible defaults are provided for a configuration-less startup
+  - Utilize the existing `.env.local` file that you are already familiar with
 - ✅ Visual Studio Code [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) support
-- ✅ Production-ready, automatic HTTPS, HTTP/2 and [Vulcain](https://vulcain.rocks) support
-- ✅ PHP OPcache [preloading](https://www.php.net/manual/en/opcache.preloading.php) support
-- ✅ [Webpack Encore](https://github.com/symfony/webpack-encore) support
+  - Open multiple projects simultaneously with automatic port forwarding
+  - Includes opinionated settings and extensions
+  - Version without settings and extensions is also available
 - ✅ [MariaDB](https://mariadb.com/products/community-server) DBMS
+  - Doctrine `DATABASE_URL` parsing, promoting DRY principle
+  - Doctrine migrations support
+  - Version without MariaDB service is also available
+- ✅ Production-ready, automatic HTTPS, HTTP/2 and [Vulcain](https://vulcain.rocks) support
+  - Automatic www redirection to non-www version
+  - Version without production configuration is also available
+- ✅ [Webpack Encore](https://github.com/symfony/webpack-encore) support
+- ✅ PHP OPcache [preloading](https://www.php.net/manual/en/opcache.preloading.php) support
 - ✅ Docker multi-platform images
-- ✅ Services startup order using healthchecks
-
-👨‍💻 **Developer experience** improvements:
-
-- ✅ Configuration-less project startup with sensible defaults
-- ✅ Utilize the existing `.env.local` file that you are already familiar with
-- ✅ Doctrine `DATABASE_URL` parsing, promoting DRY principle
-- ✅ A fully set of Visual Studio Code (opinionated) preconfigured extensions
-- ✅ Open multiple projects simultaneously with automatic port forwarding
-- ✅ Pre-built base images for quick project startup
-- ✅ Automatic www redirection to non-www version
-- ✅ Timezone works for all services and it's synced with PHP timezone
+  - Prebuilt base images for faster project startup
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
