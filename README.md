@@ -19,7 +19,7 @@
   A comprehensive <b>development and production environment</b> for Symfony 4/5/6 projects, powered by Docker.
 </p>
 
-> **Warning**: *this project is still under development, please use it for testing purposes and feel free to suggest changes and improvements.*
+> **Warning**: this project is still under development, please use it for testing purposes and feel free to suggest changes and improvements.
 
 This project draws inspiration from the work of [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker). Its goal is to provide a configurable environment and enhanced developer experience. It includes support for **Webpack Encore** and **MariaDB**. Versions without MariaDB and production container are also available!
 
@@ -40,7 +40,7 @@ This project draws inspiration from the work of [dunglas/symfony-docker](https:/
 - ✅ Utilize the existing `.env.local` file that you are already familiar with
 - ✅ Doctrine `DATABASE_URL` parsing, promoting DRY principle
 - ✅ A fully set of Visual Studio Code (opinionated) preconfigured extensions
-- ✅ Open multiple Sail projects simultaneously with automatic port forwarding
+- ✅ Open multiple projects simultaneously with automatic port forwarding
 - ✅ Pre-built base images for quick project startup
 - ✅ Automatic www redirection to non-www version
 - ✅ Timezone works for all services and it's synced with PHP timezone
@@ -80,6 +80,8 @@ The only requirements are [Docker Desktop](https://www.docker.com/products/docke
 
 👇 Grab the latest release! 👇
 
+> **Warning**: use release links and **DO NOT clone** this repository and use it directly as it is not intended to be used that way.
+
 | Release                                                                                                     | Database | Production configuration | VSCode configuration |
 | :---------------------------------------------------------------------------------------------------------- | :------: | :----------------------: | :------------------: |
 | [symfony-sail.zip](https://github.com/gremo/symfony-sail/releases/latest/download/symfony-sail.zip)         | ✅       | ✅                      | ✅                   |
@@ -104,7 +106,7 @@ Want to start developing a **brand-new Symfony project**?
 
 If you want to dockerize your **existing project**:
 
-> **Note**: make sure your existing `DATABASE_URL` in `.env.local` contains `db:3306`.
+> **Note**: make sure your existing `DATABASE_URL` in `.env.local` both "mysql://" and "db:3306".
 
 1. Extract the archive into the project's root folder
 2. **Double-check for any overwritten files**
@@ -321,7 +323,7 @@ Summary of variables, where they should be defined, and their default values:
 | `CADDY_ADMIN_OPTION`       | `string`              | Caddy admin option, environment-based (admin disabled in production) |
 | `CADDY_DEBUG_OPTION`       | `string`              | Caddy debug option, environment-based (debug disabled in production) |
 
-Notes:
+Further considerations:
 
 - In production, make sure to include your domain in the `SERVER_NAME` variable, for example: `SERVER_NAME="localhost:80, localhost, example.com"`
 - `SERVER_DISABLE_WWW_REDIR` disable the automatic redirection for all addresses starting with `www.` (or `https?://www.`) to the non-www version
@@ -340,7 +342,7 @@ Notes:
 | `KNOWN_HOSTS`         | `list`                               | Known hosts for SSH keys retrieval, see [faq](#-faq) (space or comma-separated)               |
 | `WRITABLE_DIRS`       | `list`                               | Folders that need to be writable by the PHP process (space or comma-separated)                |
 
-Notes:
+Further considerations:
 
 - `WRITABLE_DIRS` does not support folder names that contain spaces or commas
 - Default `WRITABLE_DIRS` ensure compatibility with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle) and the uploads folder (used in many Symfony examples)
@@ -356,15 +358,14 @@ Notes:
 | Variable                        | Allowed values       | Notes                                                                       |
 | :------------------------------ | :------------------- | :-------------------------------------------------------------------------- |
 | `MARIADB_VERSION`               | "latest", `x`, `x.y` | Down to 10.6                                                                |
-| `DATABASE_URL`                  | `string`             | Doctrine-style database URL/DNS with "db:3306" as host and port             |
+| `DATABASE_URL`                  | `string`             | Doctrine-style database URL/DNS with "mysql://" and "db:3306"               |
 | `DATABASE_DISABLE_MIGRATIONS`   | `string`             | Any non-empty value disables database migrations (disabled in development)  |
 | `DATABASE_ROOT_PASSWORD`        | `string`             | Password for the root user                                                  |
 | `DATABASE_ROOT_PASSWORD_HASH`   | `string`             | Hashed password for the root user (`SELECT PASSWORD('thepassword'`))        |
 | `DATABASE_RANDOM_ROOT_PASSWORD` | `string`             | Any non-empty value for random root password                                |
 
-Notes:
+Further considerations:
 
-- `DATABASE_URL` must specify "mysql://" as protocol and "db:3306" as host/port, otherwise an error is thrown
 - If `DATABASE_URL` specifies a root user with an empty password, password will be honored and `DATABASE_ROOT_*` ignored
 
 In a **non-production environment**:
