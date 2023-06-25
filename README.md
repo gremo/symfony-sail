@@ -419,17 +419,7 @@ Read [Docker internals](docs/docker-internals.md) if you are curious about how t
 
 ## ❤️ Contributing
 
-New features, ideas and bug fixes are always welcome! Everyone interacting in the Symfony Sail project's code bases or issue trackers, is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
-
-In order to contribute to this project, follow a few easy steps:
-
-1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) this repository and clone it on your machine
-2. Create a branch `my-awesome-feature` and commit to it
-3. Push `my-awesome-feature` branch to GitHub and open a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
-
-<p align="center">
-  <a href="https://paypal.me/marcopolichetti" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-</p>
+All types of contributions are encouraged and valued. See the [Contributing](CONTRIBUTING.md) guidelines, the community looks forward to your contributions!
 
 ## 📘 License
 
