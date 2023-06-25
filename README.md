@@ -7,7 +7,7 @@
 </h1>
 <p align="center">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gremo/symfony-sail">
-  <img alt="GitHub workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build-push.yaml">
+  <img alt="GitHub workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build_push.yaml">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/gremo/symfony-sail">
   <img alt="GitHub license" src="https://img.shields.io/github/license/gremo/symfony-sail">
   <a href="https://paypal.me/marcopolichetti" target="_blank">
