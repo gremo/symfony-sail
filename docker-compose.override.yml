@@ -53,7 +53,7 @@ services:
         ports:
             - '3306:3306'
         healthcheck:
-            test: ['CMD', '/usr/local/bin/healthcheck.sh', '--su-mysql', '--connect', '--innodb_initialized']
+            test: ['CMD', '/usr/local/bin/healthcheck.sh', '--innodb_initialized']
             start_period: ${HEALTHCHECK_WAIT:-5s}
             timeout: 5s
             interval: 5s
