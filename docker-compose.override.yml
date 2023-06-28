@@ -8,6 +8,8 @@ services:
                 PHP_EXTENSIONS: ${PHP_EXTENSIONS:-}
                 COMPOSER_VERSION: ${COMPOSER_VERSION:-lts}
                 NODE_VERSION: ${NODE_VERSION:-lts}
+        environment:
+            APP_ENV: prod
         volumes:
             - public_media:/srv/public/media:ro
             - public_uploads:/srv/public/uploads:ro
