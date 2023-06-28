@@ -4,7 +4,10 @@ set -e
 : ${CONSOLE:="bin/console"}
 : ${WRITABLE_DIRS:="public/media/ public/uploads/ var/"}
 : ${KNOWN_HOSTS:="bitbucket.org github.com gitlab.com"}
-: ${DATABASE_DISABLE_MIGRATIONS:=$( [ "$APP_ENV" = "dev" ] && echo "true" )}
+
+if [ "${DATABASE_DISABLE_MIGRATIONS+set}" != set ]; then
+    : ${DATABASE_DISABLE_MIGRATIONS:=$( [ "$APP_ENV" = "prod" ] || echo "true" )}
+fi
 
 if [ "${1#-}" != "$1" ]; then
     set -- php-fpm "$@"
