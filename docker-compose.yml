@@ -28,7 +28,7 @@ services:
                 NODE_VERSION: ${NODE_VERSION:-lts}
         #ejs <%_ if (!mariadb) { _%>
         environment:
-            DATABASE_DISABLE_MIGRATIONS: true
+            DATABASE_ENABLE_MIGRATIONS: false
         #ejs <%_ } _%>
         volumes:
             - php_socket:/var/run/php

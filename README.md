@@ -158,10 +158,10 @@ Summary of variables, where they should be defined, and their default values:
       <td>localhost:80, localhost</td>
     </tr>
     <tr>
-      <td><code>SERVER_DISABLE_WWW_REDIR</code></td>
+      <td><code>SERVER_ENABLE_WWW_REDIRECT</code></td>
       <td align="center">❌</td>
       <td align="center">✅</td>
-      <td></td>
+      <td>true</td>
     </tr>
     <tr>
       <td><code>CADDY_ADMIN_OPTION</code></td>
@@ -257,10 +257,10 @@ Summary of variables, where they should be defined, and their default values:
       <td></td>
     </tr>
     <tr>
-      <td><code>DATABASE_DISABLE_MIGRATIONS</code></td>
+      <td><code>DATABASE_ENABLE_MIGRATIONS</code></td>
       <td align="center">❌</td>
       <td align="center">✅</td>
-      <td></td>
+      <td><i>Environment-based</i></td>
     </tr>
     <tr>
       <td><code>DATABASE_ROOT_PASSWORD</code></td>
@@ -314,18 +314,18 @@ Summary of variables, where they should be defined, and their default values:
 
 #### Server-related variables
 
-| Variable                   | Allowed values        | Notes                                                                |
-| :------------------------- | :-------------------- | :------------------------------------------------------------------- |
-| `CADDY_VERSION`            | "latest", `x`, `x.y`  | Down to 2.6                                                          |
-| `SERVER_NAME`              | `list`                | Server names(s)/address(es) (space or comma-separated)               |
-| `SERVER_DISABLE_WWW_REDIR` | `string`              | Any non-empty value disables the www redirection                     |
-| `CADDY_ADMIN_OPTION`       | `string`              | Caddy admin option, environment-based (admin disabled in production) |
-| `CADDY_DEBUG_OPTION`       | `string`              | Caddy debug option, environment-based (debug disabled in production) |
+| Variable                     | Allowed values        | Notes                                                                |
+| :--------------------------- | :-------------------- | :------------------------------------------------------------------- |
+| `CADDY_VERSION`              | "latest", `x`, `x.y`  | Down to 2.6                                                          |
+| `SERVER_NAME`                | `list`                | Server names(s)/address(es) (space or comma-separated)               |
+| `SERVER_ENABLE_WWW_REDIRECT` | "true" or "false"     | Whether to perform the www redirection to the non-www version        |
+| `CADDY_ADMIN_OPTION`         | `string`              | Caddy admin option, environment-based (admin disabled in production) |
+| `CADDY_DEBUG_OPTION`         | `string`              | Caddy debug option, environment-based (debug disabled in production) |
 
 Further considerations:
 
 - In production, make sure to include your domain in the `SERVER_NAME` variable, for example: `SERVER_NAME="localhost:80, localhost, example.com"`
-- `SERVER_DISABLE_WWW_REDIR` disable the automatic redirection for all addresses starting with `www.` (or `https?://www.`) to the non-www version
+- The automatic redirection is enabled for only addresses starting with `www.` (or `https?://www.`)
 - When `SERVER_NAME` contains a `www.example.org` or `https?://www.example.org` address, ensure that `example.org` exists too
 
 #### PHP-related variables
@@ -354,14 +354,14 @@ Further considerations:
 
 #### Database-related variables
 
-| Variable                        | Allowed values       | Notes                                                                       |
-| :------------------------------ | :------------------- | :-------------------------------------------------------------------------- |
-| `MARIADB_VERSION`               | "latest", `x`, `x.y` | Down to 10.6                                                                |
-| `DATABASE_URL`                  | `string`             | Doctrine-style database URL/DNS with "mysql://" and "db:3306"               |
-| `DATABASE_DISABLE_MIGRATIONS`   | `string`             | Any non-empty value disables database migrations (disabled in development)  |
-| `DATABASE_ROOT_PASSWORD`        | `string`             | Password for the root user                                                  |
-| `DATABASE_ROOT_PASSWORD_HASH`   | `string`             | Hashed password for the root user (`SELECT PASSWORD('thepassword'`))        |
-| `DATABASE_RANDOM_ROOT_PASSWORD` | `string`             | Any non-empty value for random root password                                |
+| Variable                        | Allowed values       | Notes                                                                              |
+| :------------------------------ | :------------------- | :--------------------------------------------------------------------------------- |
+| `MARIADB_VERSION`               | "latest", `x`, `x.y` | Down to 10.6                                                                       |
+| `DATABASE_URL`                  | `string`             | Doctrine-style database URL/DNS with "mysql://" and "db:3306"                      |
+| `DATABASE_ENABLE_MIGRATIONS`    | "true" or "false"    | Whether to perform migrations at startup, environment-based ("true" in production) |
+| `DATABASE_ROOT_PASSWORD`        | `string`             | Password for the root user                                                         |
+| `DATABASE_ROOT_PASSWORD_HASH`   | `string`             | Hashed password for the root user (`SELECT PASSWORD('thepassword'`))               |
+| `DATABASE_RANDOM_ROOT_PASSWORD` | `string`             | Any non-empty value for random root password                                       |
 
 Further considerations:
 

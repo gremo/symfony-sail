@@ -4,10 +4,7 @@ set -e
 : ${CONSOLE:="bin/console"}
 : ${WRITABLE_DIRS:="public/media/ public/uploads/ var/"}
 : ${KNOWN_HOSTS:="bitbucket.org github.com gitlab.com"}
-
-if [ "${DATABASE_DISABLE_MIGRATIONS+set}" != set ]; then
-    : ${DATABASE_DISABLE_MIGRATIONS:=$( [ "$APP_ENV" = "prod" ] || echo "true" )}
-fi
+: ${DATABASE_ENABLE_MIGRATIONS:=$([ "$APP_ENV" = "prod" ] && echo "true" || echo "false" )}
 
 if [ "${1#-}" != "$1" ]; then
     set -- php-fpm "$@"
@@ -38,7 +35,7 @@ if [ "$1" = 'php-fpm' ]; then
     done
 
     if [ -f "$CONSOLE" ]; then
-        if [ -z "$DATABASE_DISABLE_MIGRATIONS" ] && php "$CONSOLE" --raw | grep -q ^doctrine:migrations:migrate; then
+        if [ "$DATABASE_ENABLE_MIGRATIONS" = "true" ] && php "$CONSOLE" --raw | grep -q ^doctrine:migrations:migrate; then
             php "$CONSOLE" doctrine:database:create --if-not-exists --no-interaction --quiet
             php "$CONSOLE" doctrine:migrations:migrate --allow-no-migration --no-interaction
         fi

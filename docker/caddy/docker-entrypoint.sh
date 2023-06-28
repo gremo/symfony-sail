@@ -2,7 +2,7 @@
 set -e
 
 : ${SERVER_NAME:="localhost:80, localhost"}
-: ${SERVER_DISABLE_WWW_REDIR:=}
+: ${SERVER_ENABLE_WWW_REDIRECT:=true}
 : ${CADDY_DEBUG_OPTION:=$([ "$APP_ENV" = "prod" ] || echo "debug")}
 : ${CADDY_ADMIN_OPTION:=$([ "$APP_ENV" = "prod" ] && echo "admin off")}
 
@@ -10,7 +10,7 @@ names_normalized=$(echo "$SERVER_NAME" | tr ',' ' ' | awk '{$1=$1}1')
 names_processed="$names_normalized"
 block_www_redir=
 
-if [ -z "$SERVER_DISABLE_WWW_REDIR" ]; then
+if [ "$SERVER_ENABLE_WWW_REDIRECT" = "true" ]; then
     names_processed=
 
     www_domains=
