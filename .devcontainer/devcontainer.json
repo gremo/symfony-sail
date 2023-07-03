@@ -87,7 +87,7 @@
         },
         "files.trimTrailingWhitespace": false,
         "html.autoClosingTags": false,
-        "intelephense.diagnostics.enable": false,
+        "intelephense.diagnostics.enable": true,
         "intelephense.environment.phpVersion": "${containerEnv:PHP_VERSION}",
         "intelephense.format.enable": true,
         "intelephense.telemetry.enabled": false,
