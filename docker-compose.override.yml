@@ -10,13 +10,13 @@ services:
                 NODE_VERSION: ${NODE_VERSION:-lts}
         environment:
             APP_ENV: prod
-        volumes:
-            - public_media:/srv/public/media:ro
-            - public_uploads:/srv/public/uploads:ro
         ports:
             - '80:80'
             - '443:443'
             - '443:443/udp'
+        volumes:
+            - public_media:/srv/public/media:ro
+            - public_uploads:/srv/public/uploads:ro
         depends_on:
             php:
                 condition: service_healthy
@@ -28,11 +28,11 @@ services:
             target: php-prod
             args:
                 NODE_VERSION: ${NODE_VERSION:-lts}
+        environment:
+            APP_ENV: prod
         volumes:
             - public_media:/var/www/html/public/media
             - public_uploads:/var/www/html/public/uploads
-        environment:
-            APP_ENV: prod
         #ejs <%_ if (mariadb) { _%>
         depends_on:
             db:
