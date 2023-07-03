@@ -1,5 +1,24 @@
 # Upgrade
 
+## `0.1.x` to `0.2.x`
+
+Minor changes regarding default MariaDB version and Docker mounts:
+
+- The default version of MariaDB is now 11
+- A new Docker mount, `public/bundles`, has been added to the development configuration
+
+### How to upgrade
+
+Even if not strictly necessary (MariaDB version is controlled in `.env`), you can change the default value when `MARIADB_VERSION` is empty:
+
+- In your `Dockerfile` change `ARG MARIADB_VERSION=10` to `ARG MARIADB_VERSION=11`
+- In your `docker-compose.yml` change `db.build.args.MARIADB_VERSION` to `${MARIADB_VERSION:-11}`
+
+To add the new Docker mount:
+
+- In your `docker-compose.dev.yml` add `public_bundles:/var/www/html/public/bundles` to `php.volumes`
+- In your `docker-compose.dev.yml` add `public_bundles:` to `volumes`
+
 ## `0.0.x` to `0.1.x`
 
 Few changes regarding how environment variables are handled:
