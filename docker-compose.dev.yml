@@ -13,6 +13,7 @@ services:
             target: php-dev
         volumes:
             - node_modules:/var/www/html/node_modules
+            - public_bundles:/var/www/html/public/bundles
             - var:/var/www/html/var
             - vendor:/var/www/html/vendor
             - ./config/docker/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-app.conf:ro
@@ -28,5 +29,6 @@ services:
     #ejs <%_ } %>
 volumes:
     node_modules:
+    public_bundles:
     var:
     vendor:
