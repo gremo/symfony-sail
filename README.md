@@ -336,7 +336,7 @@ Further considerations:
 
 | Variable              | Allowed values                       | Notes                                                                                         |
 | :-------------------- | :----------------------------------- | :-------------------------------------------------------------------------------------------- |
-| `PHP_VERSION`         | "latest", `x`, `x.y`                 | Down to 7.4                                                                                   |
+| `PHP_VERSION`         | "latest", `x`, `x.y`                 | Down to 7.1                                                                                   |
 | `PHP_EXTENSIONS`      | `list`                               | Additional PHP extensions to be installed (space or comma-separated)                          |
 | `PHP_DEV_EXTENSIONS`  | `list`                               | Additional PHP development-only extensions to be installed (space or comma-separated)         |
 | `PHP_PROD_EXTENSIONS` | `list`                               | Additional PHP production-only extensions to be installed (space or comma-separated)          |
