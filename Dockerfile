@@ -11,7 +11,7 @@ ARG KNOWN_HOSTS="bitbucket.org github.com gitlab.com"
 #ejs <% } _%>
 ARG NODE_VERSION=lts
 #ejs <% if (mariadb) { _%>
-ARG MARIADB_VERSION=10
+ARG MARIADB_VERSION=11
 #ejs <% } _%>
 
 ###############################################################################

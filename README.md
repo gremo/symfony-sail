@@ -252,7 +252,7 @@ Summary of variables, where they should be defined, and their default values:
       <td><code>MARIADB_VERSION</code></td>
       <td align="center">✅</td>
       <td align="center">❌</td>
-      <td>10</td>
+      <td>11</td>
     </tr>
     <tr>
       <td><code>DATABASE_URL</code></td>

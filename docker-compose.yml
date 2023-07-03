@@ -44,7 +44,7 @@ services:
         build:
             context: ./
             args:
-                MARIADB_VERSION: ${MARIADB_VERSION:-10}
+                MARIADB_VERSION: ${MARIADB_VERSION:-11}
         volumes:
             - db_data:/var/lib/mysql
     #ejs <%_ } %>
