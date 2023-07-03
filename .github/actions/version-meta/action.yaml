@@ -1,0 +1,99 @@
+name: Version meta
+description: Extract the version meta from the given version and comparable versions
+
+inputs:
+    version:
+        required: true
+        description: Version from which to extract information
+    compare-to:
+        required: true
+        description: JSON array containing versions to compare to
+
+outputs:
+    latest:
+        description: Whether the version is the latest
+        value: ${{ steps.version.outputs.latest }}
+    latestMajor:
+        description: Whether the version is the latest major (among the same major)
+        value: ${{ steps.version.outputs.latestMajor }}
+    latestMinor:
+        description: Whether the version is the latest minor (among the same major/minor)
+        value: ${{ steps.version.outputs.latestMinor }}
+    major:
+        description: Version's major number
+        value: ${{ steps.version.outputs.major }}
+    minor:
+        description: Version's minor number
+        value: ${{ steps.version.outputs.minor }}
+    patch:
+        description: Version's patch number
+        value: ${{ steps.version.outputs.patch }}
+
+runs:
+    using: 'composite'
+    steps:
+        - id: version
+          shell: bash
+          run: |
+              version="${{ inputs.version }}"
+              comparable='${{ inputs.compare-to }}'
+
+              versions=$(echo "$comparable" | jq '.[]' | sort -rV | jq -r '.' | tr '\n' ' ')
+              major=$(echo "$version" | cut -d'.' -f1)
+              minor=$(echo "$version" | cut -d'.' -f2)
+              patch=$(echo "$version" | cut -d'.' -f3)
+
+              latest=true
+              latestMajor=true
+              latestMinor=true
+              for cversion in $versions; do
+                  if [ "$cversion" = "$version" ]; then
+                      continue
+                  fi
+
+                  cmajor=$(echo "$cversion" | cut -d. -f1)
+                  cminor=$(echo "$cversion" | cut -d. -f2)
+                  cpatch=$(echo "$cversion" | cut -d. -f3)
+
+                  # Not the latest if a higher version exists
+                  if [ "$latest" = "true" ] &&
+                      [ "$cmajor" -gt "$major" ] ||
+                          { [ "$cmajor" = "$major" ] && [ "$cminor" -gt "$minor" ]; } ||
+                              { [ "$cmajor" = "$major" ] && [ "$cminor" = "$minor" ] && [ "$cpatch" -gt "$patch" ]; }; then
+                      latest=false
+                  fi
+
+                  # Not the latest major (within the same major) if a higher minor or patch version exists
+                  if [ "$latestMajor" = "true" ] &&
+                      { [ "$cmajor" = "$major" ] && [ "$cminor" -gt "$minor" ]; } ||
+                          { [ "$cmajor" = "$major" ] && [ "$cminor" = "$minor" ] && [ "$cpatch" -gt "$patch" ]; }; then
+                      latestMajor=false
+                  fi
+
+                  # Not the latest minor (within the same major/minor) if a higher patch version exists
+                  if [ "$latestMinor" = "true" ] &&
+                      [ "$cmajor" = "$major" ] && [ "$cminor" = "$minor" ] && [ "$cpatch" -gt "$patch" ]; then
+                      latestMinor=false
+                  fi
+              done
+
+              {
+                  echo "latest=$latest"
+                  echo "latestMajor=$latestMajor"
+                  echo "latestMinor=$latestMinor"
+                  echo "major=$major"
+                  echo "minor=$minor"
+                  echo "patch=$patch"
+              } >> "$GITHUB_OUTPUT"
+
+              echo "::group::Version"
+              echo "version: $version"
+              echo "compare-to: $comparable"
+              echo "versions: $versions"
+              echo "latest: $latest"
+              echo "latestMajor: $latestMajor"
+              echo "latestMinor: $latestMinor"
+              echo "major: $major"
+              echo "minor: $minor"
+              echo "patch: $patch"
+              echo "::endgroup::"
