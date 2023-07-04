@@ -93,6 +93,12 @@ jobs:
             - name: Delete using .distignore
               run: xargs rm -rf < .distignore
 
+            - name: Prettier
+              if: matrix.vsconfig
+              uses: actionsx/prettier@v2
+              with:
+                  args: --write .
+
             - name: Create archive
               run: |
                   zip -z -r9 ${{ matrix.filename }} . <<END
