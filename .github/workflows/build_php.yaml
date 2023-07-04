@@ -32,8 +32,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: setup
         name: '${{ matrix.target }}:${{ matrix.version }}'
-        env:
-            foo: bar
         strategy:
             fail-fast: false
             matrix:
