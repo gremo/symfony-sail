@@ -1,22 +1,22 @@
 <p align="center">
-  <a href="https://hub.docker.com/u/symfonysail"><img src="https://user-images.githubusercontent.com/1532616/240989308-35c48a35-75f2-4971-bf58-2dbe106c178a.png" alt="Logo" width="200" /></a>
+  <a href="https://hub.docker.com/u/symfonysail"><img src="https://user-images.githubusercontent.com/1532616/240989308-35c48a35-75f2-4971-bf58-2dbe106c178a.png" alt="Logo" width="200"></a>
 </p>
 
 <h1 align="center">
   Symfony Sail
 </h1>
 <p align="center">
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gremo/symfony-sail">
-  <img alt="GitHub Caddy workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build_caddy.yaml?label=Caddy">
-  <img alt="GitHub PHP workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build_php.yaml?label=PHP">
-  <img alt="GitHub MariaDB workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build_mariadb.yaml?label=MariaDB">
+  <a href="https://github.com/gremo/symfony-sail/releases"><img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/gremo/symfony-sail"></a>
+  <a href="https://github.com/gremo/symfony-sail/commits"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gremo/symfony-sail"></a>
+  <a href="https://github.com/gremo/symfony-sail/blob/main/.github/workflows/build_caddy.yaml"><img alt="GitHub Caddy workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build_caddy.yaml?label=Caddy"></a>
+  <a href="https://github.com/gremo/symfony-sail/blob/main/.github/workflows/build_php.yaml"><img alt="GitHub PHP workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build_php.yaml?label=PHP"></a>
+  <a href="https://github.com/gremo/symfony-sail/blob/main/.github/workflows/build_mariadb.yaml"><img alt="GitHub MariaDB workflow status" src="https://img.shields.io/github/actions/workflow/status/gremo/symfony-sail/build_mariadb.yaml?label=MariaDB"></a>
 </p>
 <p align="center">
-  <img alt="GitHub issues" src="https://img.shields.io/github/issues/gremo/symfony-sail">
-  <img alt="GitHub license" src="https://img.shields.io/github/license/gremo/symfony-sail">
-  <a href="https://paypal.me/marcopolichetti" target="_blank">
-    <img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/>
-  </a>
+  <a href="https://github.com/gremo/symfony-sail/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/gremo/symfony-sail"></a>
+  <a href="https://github.com/gremo/symfony-sail/pulls"><img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/gremo/symfony-sail"></a>
+  <a href="https://github.com/gremo/symfony-sail/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/gremo/symfony-sail"></a>
+  <a href="https://paypal.me/marcopolichetti"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"></a>
 </p>
 
 <p align="center">
