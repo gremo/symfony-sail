@@ -25,28 +25,27 @@
 
 > **Warning**: this project is still under development, please use it for testing purposes and feel free to suggest changes and improvements.
 
-This project draws inspiration from the work of [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker). Its goal is to provide a configurable environment and enhanced **developer experience**. It includes support for **Visual Studio Code Dev Containers**, **MariaDB** and **Webpack Encore**. Versions without database, production configuration and Visual Studio Code settings and extensions are also available!
+This project draws inspiration from the work of [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker). Its goal is to provide a configurable environment and enhanced **developer experience**. It includes support for **Visual Studio Code Dev Containers**, **MariaDB** and **Webpack Encore**.
 
 💫 Main **features**:
 
 - ✅ Fully customizable
-  - Sensible defaults are provided for a configuration-less startup
-  - Utilize the existing `.env.local` file that you are already familiar with
+  - Sensible defaults for configuration-less startup
+  - Utilize the `.env.local` file you are already familiar with
 - ✅ Visual Studio Code [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) support
-  - Open multiple projects simultaneously with automatic port forwarding
-  - Includes opinionated settings and extensions
-  - Version without settings and extensions is also available
+  - Run multiple projects simultaneously with automatic port forwarding
+  - Opinionated settings and extensions
 - ✅ [MariaDB](https://mariadb.com/products/community-server) DBMS
-  - Doctrine `DATABASE_URL` parsing, promoting DRY principle
+  - Doctrine `DATABASE_URL` parsing for DRY principle
   - Doctrine migrations support
-  - Version without MariaDB service is also available
 - ✅ Production-ready, automatic HTTPS, HTTP/2 and [Vulcain](https://vulcain.rocks) support
-  - Automatic www redirection to non-www version
-  - Version without production configuration is also available
+  - Automatic www to non-www redirection
 - ✅ [Webpack Encore](https://github.com/symfony/webpack-encore) support
 - ✅ PHP OPcache [preloading](https://www.php.net/manual/en/opcache.preloading.php) support
 - ✅ Docker multi-platform images
-  - Prebuilt base images for faster project startup
+  - Prebuilt base images for faster startup
+
+Versions without database, production configuration and Visual Studio Code settings and extensions are also available!
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
