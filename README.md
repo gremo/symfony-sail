@@ -20,12 +20,12 @@
 </p>
 
 <p align="center">
-  A comprehensive <b>development and production environment</b> for Symfony 4/5/6 projects, powered by Docker.
+  An easy to use Docker <b>development and production environment</b> for Symfony 4/5/6 projects, zero-config and fully customizable.
 </p>
 
 > **Warning**: this project is still under development, please use it for testing purposes and feel free to suggest changes and improvements.
 
-This project draws inspiration from the work of [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker). Its goal is to provide a configurable environment and enhanced **developer experience**. It includes support for **Visual Studio Code Dev Containers**, **MariaDB** and **Webpack Encore**.
+This project is inspired by [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker), but it aims to be more **customizable** (while remaining **zero-config**) and enhance the **developer experience**. It includes support for Visual Studio Code **Dev Containers**, **MariaDB** and **Webpack Encore**.
 
 💫 Main **features**:
 
