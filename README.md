@@ -97,4 +97,4 @@ All types of contributions are encouraged and valued. See the [contributing](CON
 
 ## 📘 License
 
-Symfony Sail is released under the under terms of the [ISC License](LICENSE).
+Symfony Sail is released under the terms of the [ISC License](LICENSE).
