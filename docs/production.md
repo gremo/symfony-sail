@@ -1,3 +1,3 @@
-# 👍 Going to production
+# 🚀 Going to production
 
 Coming soon...

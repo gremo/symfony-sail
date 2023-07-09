@@ -1,5 +1,14 @@
 # ❓ FAQ (Frequently Asked Questions)
 
+## What are the constraints on paths and tools?
+
+> **Note**: your project will build and run just fine even without any of the following.
+
+- Public directory is `public/` with `index.php` index file
+- PHP dependencies installed using Composer
+- PHP preload file is `config/preload.php`
+- Assets dependencies installed using npm or Yarn
+
 ## How do I use Composer private repositories?
 
 Sharing SSH keys is tricky, particularly in the production environment. During development, Visual Studio Code will do the hard work and your SSH keys will work just fine. In production, those SSH keys are not copied in the final image. To fetch private repositories, take advantage of the [`COMPOSER_AUTH`](https://getcomposer.org/doc/articles/authentication-for-private-packages.md#authentication-using-the-composer-auth-environment-variable) in your `.env` file.
@@ -158,3 +167,21 @@ Those messages are caused by the healthcheck calls. PHP 8.2 introduces a new `ac
 ## Why OPcache timestamps are disabled in production?
 
 The `opcache.validate_timestamps` directive is disabled by the [default configuration](../docker/php/php.prod.ini) because there is no need to check for updated scripts with every request. As soon as you update any PHP file (actually, any file) and run `docker compose up -d --build`, the php-fpm service will restart, thus invalidating the OPcache.
+
+## How do the components related to Docker operate?
+
+Project [`Dockerfile`](../Dockerfile) is a [multi-stage build](https://docs.docker.com/build/building/multi-stage/) where multiple `FROM` statements are used to build the final artifact(s).
+
+The development flow involves two Docker compose files:
+
+> **Note**: both files are loaded automatically by Visual Studio Code Dev Container extension.
+
+- [`docker-compose.yml`](../docker-compose.yml)
+- [`docker-compose.dev.yml`](../docker-compose.dev.yml)
+
+The production flow involves two Docker compose files:
+
+> **Note**: both files are loaded automatically by Docker Compose.
+
+- [`docker-compose.yml`](../docker-compose.yml)
+- [`docker-compose.override.yml`](../docker-compose.override.yml)

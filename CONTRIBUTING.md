@@ -15,7 +15,3 @@ In order to contribute to this project, follow a few easy steps:
 1. [Fork](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) this repository and clone it on your machine
 2. Create a branch `my-awesome-feature` and commit to it
 3. Push `my-awesome-feature` branch to GitHub and open a [pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
-
-<p align="center">
-  <a href="https://paypal.me/marcopolichetti" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-</p>
