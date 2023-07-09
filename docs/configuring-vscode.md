@@ -1,6 +1,6 @@
 # 👨‍💻 Configuring Visual Studio Code
 
-If you have downloaded the distribution with VSCode customizations, you'll enjoy...
+If you have downloaded the distribution with Visual Studio Code customizations, you'll enjoy:
 
 - Format file on save using [Prettier](https://prettier.io) and [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 - JavaScript and CSS linting using [ESLint](https://eslint.org) and [Stylelint](https://stylelint.io)
@@ -12,7 +12,7 @@ If you have downloaded the distribution with VSCode customizations, you'll enjoy
 - Twig syntax highlight and snippets
 - Unit tests browser
 
-To make VSCode fully functional, you need to install a few tools locally:
+To make the IDE fully functional, you need to install a few tools locally:
 
 ```bash
 composer require --dev phpstan/phpstan squizlabs/php_codesniffer
@@ -46,17 +46,7 @@ Create a `.stylelintrc.json` file:
 }
 ```
 
-Create a `phpstan.neon` file:
-
-```yaml
-parameters:
-    level: 6
-    paths:
-        - src
-        - tests
-```
-
-If using Webpack Encore bundle, remeber to configure watchOptions in `webpack.config.js`:
+If using Webpack Encore bundle, remember to configure `watchOptions` in `webpack.config.js`:
 
 ```js
 Encore
