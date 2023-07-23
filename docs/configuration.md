@@ -252,7 +252,7 @@ Further considerations:
 
 In a **non-production environment**:
 
-- If `DATABASE_URL` is empty, root password will be empty and database name will default to "db_name"
+- If `DATABASE_URL` is empty, root password will be empty and database name will default to "app"
 - If `DATABASE_URL` specifies a non-root user and none of the `DATABASE_ROOT_*` variables are applicable, root password will be empty
 
 In a **production environment**:

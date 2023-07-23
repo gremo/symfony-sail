@@ -66,7 +66,7 @@ if [ "$DATABASE_URL" != "${DATABASE_URL#mysql://}" ]; then
     parse_database_url "$DATABASE_URL" DB
 
     if [ "$DB_HOST" = "db" ] && [ "$DB_PORT" = "3306" ]; then
-       : "${DB_NAME:="db_name"}"
+       : "${DB_NAME:=app}"
 
         export MARIADB_DATABASE="$DB_NAME"
         if [ "$DB_USER" = "root" ]; then
@@ -103,7 +103,7 @@ elif [ -z "$DATABASE_URL" ]; then
     fi
 
     export MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=true
-    export MARIADB_DATABASE=db_name
+    export MARIADB_DATABASE=app
 else
     log_error "DATABASE_URL specifies an unsupported, unable to parse."
 fi
