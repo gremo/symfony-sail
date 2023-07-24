@@ -36,7 +36,7 @@ This project is inspired by [dunglas/symfony-docker](https://github.com/dunglas/
 - ✅ Visual Studio Code [dev container](https://code.visualstudio.com/docs/devcontainers/containers), opinionated settings and extensions
 - ✅ [MariaDB](https://mariadb.com/products/community-server), automatic Doctrine `DATABASE_URL` parsing, migrations support
 - ✅ [Caddy](https://caddyserver.com) web server, automatic HTTPS and www to non-www redirection, HTTP/2, [Vulcain](https://vulcain.rocks) support
-- ✅ [Webpack Encore](https://github.com/symfony/webpack-encore) and [Vite](https://github.com/lhapaipai/vite-bundle) support
+- ✅ [Webpack Encore](https://github.com/symfony/webpack-encore) and [Vite](https://github.com/vitejs/vite) support
 - ✅ PHP OPcache [preloading](https://www.php.net/manual/en/opcache.preloading.php) support
 - ✅ Docker pre-built multi-platform images for faster startup
 
