@@ -25,7 +25,7 @@
   <a href="#-license">License</a>
 </p>
 
-This project is inspired by [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker), but it aims to be more **customizable** (while remaining **zero-config**) and enhance the **developer experience**. It includes support for Visual Studio Code **Dev Containers**, **MariaDB** and **Webpack Encore**.
+This project is inspired by [dunglas/symfony-docker](https://github.com/dunglas/symfony-docker), but it aims to be more **customizable** (while remaining **zero-config**) and enhance the **developer experience**. It includes support for Visual Studio Code **Dev Containers**, **MariaDB** and **Webpack Encore/Vite**.
 
 > **Warning**: this project is still under development, please use it for testing purposes and feel free to suggest changes and improvements.
 
@@ -37,6 +37,7 @@ This project is inspired by [dunglas/symfony-docker](https://github.com/dunglas/
 - ✅ [MariaDB](https://mariadb.com/products/community-server), automatic Doctrine `DATABASE_URL` parsing, migrations support
 - ✅ [Caddy](https://caddyserver.com) web server, automatic HTTPS and www to non-www redirection, HTTP/2, [Vulcain](https://vulcain.rocks) support
 - ✅ [Webpack Encore](https://github.com/symfony/webpack-encore) support
+- ✅ [Vite](https://github.com/lhapaipai/vite-bundle) support
 - ✅ PHP OPcache [preloading](https://www.php.net/manual/en/opcache.preloading.php) support
 - ✅ Docker pre-built multi-platform images for faster startup
 
