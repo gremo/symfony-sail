@@ -51,6 +51,9 @@ RUN \
     # Build assets using Webpack Encore
     if [ -f node_modules/.bin/encore ]; then \
         node_modules/.bin/encore production; \
+    # Build assets using Vite
+    elif [ -f node_modules/.bin/vite ]; then \
+        node_modules/.bin/vite build; \
     fi;
 
 ###############################################################################
