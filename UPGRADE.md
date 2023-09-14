@@ -1,5 +1,10 @@
 # Upgrade
 
+## `0.2.x` to `0.2.4`
+
+- In your `docker-compose.dev.yml` ensure `caddy.volumes` contains `public_bundles:/srv/public/bundles`
+- In your `docker-compose.dev.yml` ensure `php.volumes` contains `public_bundles:/var/www/html/public/bundles`
+
 ## `0.1.x` to `0.2.x`
 
 Minor changes regarding default MariaDB version and Docker mounts:
