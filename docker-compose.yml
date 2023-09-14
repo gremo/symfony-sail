@@ -25,7 +25,7 @@ services:
                 PHP_VERSION: ${PHP_VERSION:-8}
                 PHP_EXTENSIONS: ${PHP_EXTENSIONS:-}
                 COMPOSER_VERSION: ${COMPOSER_VERSION:-lts}
-                NODE_VERSION: ${NODE_VERSION:-lts}
+                NODE_VERSION: ${NODE_VERSION:-18}
         #ejs <%_ if (!mariadb) { _%>
         environment:
             DATABASE_ENABLE_MIGRATIONS: false

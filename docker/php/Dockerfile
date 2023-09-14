@@ -83,6 +83,9 @@ ARG EXTENSIONS_DEV
 COPY --link php.dev.ini /usr/local/etc/php/conf.d/symfony-sail.dev.ini
 
 RUN \
+    # Install OS packages
+    apt-get update; \
+    apt-get install -y --no-install-recommends gnupg; \
     # Copy base configuration file
     cp "$PHP_INI_DIR"/php.ini-development "$PHP_INI_DIR"/php.ini; \
     # Install PHP extensions

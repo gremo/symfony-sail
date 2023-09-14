@@ -7,7 +7,7 @@ services:
                 PHP_VERSION: ${PHP_VERSION:-8}
                 PHP_EXTENSIONS: ${PHP_EXTENSIONS:-}
                 COMPOSER_VERSION: ${COMPOSER_VERSION:-lts}
-                NODE_VERSION: ${NODE_VERSION:-lts}
+                NODE_VERSION: ${NODE_VERSION:-18}
         environment:
             APP_ENV: prod
         ports:
@@ -27,7 +27,7 @@ services:
         build:
             target: php-prod
             args:
-                NODE_VERSION: ${NODE_VERSION:-lts}
+                NODE_VERSION: ${NODE_VERSION:-18}
         environment:
             APP_ENV: prod
         volumes:

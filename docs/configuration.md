@@ -120,7 +120,7 @@ Summary of variables, where they should be defined, and their default values:
       <td><code>NODE_VERSION</code></td>
       <td align="center">✅</td>
       <td align="center">❌</td>
-      <td>lts</td>
+      <td>18</td>
     </tr>
     <tr>
       <td colspan="4" align="center">
@@ -231,9 +231,9 @@ Further considerations:
 
 ### Node-related variables
 
-| Variable       | Allowed values        | Notes |
-| :------------- | :-------------------- | :---- |
-| `NODE_VERSION` | "current", "lts", `x` |       |
+| Variable       | Allowed values | Notes |
+| :------------- | :------------- | :---- |
+| `NODE_VERSION` | `x`            |       |
 
 ### Database-related variables
 

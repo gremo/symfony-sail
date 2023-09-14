@@ -1,5 +1,12 @@
 # Upgrade
 
+## `0.2.x` to `0.3.0`
+
+The PHP development image now uses the [new installation method for node](https://github.com/nodesource/distributions). Long story short, `lts` and `current` keywords can't be used anymore in `NODE_VERSION` variable.
+
+- Pull the updated PHP development image
+- Carefully merge changes in `Dockerfile`, `docker-compose.yml`, `docker-compose.override.yml`
+
 ## `0.2.x` to `0.2.4`
 
 - In your `docker-compose.dev.yml` ensure `caddy.volumes` contains `public_bundles:/srv/public/bundles`
