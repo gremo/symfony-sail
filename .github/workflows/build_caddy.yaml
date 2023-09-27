@@ -15,7 +15,7 @@ on:
 
 env:
     IMAGE_PREFIX: symfonysail
-    VERSIONS: '["2.6"]'
+    VERSIONS: '["2.7", "2.6"]'
 
 jobs:
     setup:
