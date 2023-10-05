@@ -1,5 +1,32 @@
 # Upgrade
 
+## `0.3.x` to `0.4.0`
+
+To prevent issues with Linux, change
+
+
+In your `docker-compose.dev.yml` add to `caddy.volumes`:
+
+```
+- public_media:/srv/public/media
+- public_uploads:/srv/public/uploads
+```
+
+In your `docker-compose.dev.yml` add to `php.volumes`:
+
+```
+- public_media:/var/www/html/public/media
+- public_uploads:/var/www/html/public/uploads
+```
+
+Modify `volumes` adding:
+
+```
+public_media:
+public_media:
+public_uploads:
+```
+
 ## `0.2.x` to `0.3.0`
 
 The PHP development image now uses the [new installation method for node](https://github.com/nodesource/distributions). Long story short, `lts` and `current` keywords can't be used anymore in `NODE_VERSION` variable.
