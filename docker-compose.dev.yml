@@ -5,6 +5,8 @@ services:
             target: caddy-dev
         volumes:
             - public_bundles:/srv/public/bundles
+            - public_media:/srv/public/media
+            - public_uploads:/srv/public/uploads
             - ./config/docker/Caddyfile:/etc/caddy/Caddyfile:ro
             - ./public/:/srv/public:ro
 
@@ -15,6 +17,8 @@ services:
         volumes:
             - node_modules:/var/www/html/node_modules
             - public_bundles:/var/www/html/public/bundles
+            - public_media:/var/www/html/public/media
+            - public_uploads:/var/www/html/public/uploads
             - var:/var/www/html/var
             - vendor:/var/www/html/vendor
             - ./config/docker/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-app.conf:ro
@@ -31,5 +35,7 @@ services:
 volumes:
     node_modules:
     public_bundles:
+    public_media:
+    public_uploads:
     var:
     vendor:
