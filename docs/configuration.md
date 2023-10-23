@@ -73,19 +73,19 @@ Summary of variables, where they should be defined, and their default values:
       <td><code>PHP_EXTENSIONS</code></td>
       <td align="center">✅</td>
       <td align="center">❌</td>
-      <td><a href="docker/php/Dockerfile#L2">See <code>Dockerfile</code></a></td>
+      <td><a href="../docker/php/Dockerfile#L2">See <code>Dockerfile</code></a></td>
     </tr>
     <tr>
       <td><code>PHP_DEV_EXTENSIONS</code></td>
       <td align="center">✅</td>
       <td align="center">❌</td>
-      <td><a href="docker/php/Dockerfile#L3">See <code>Dockerfile</code></a></td>
+      <td><a href="../docker/php/Dockerfile#L3">See <code>Dockerfile</code></a></td>
     </tr>
     <tr>
       <td><code>PHP_PROD_EXTENSIONS</code></td>
       <td align="center">✅</td>
       <td align="center">❌</td>
-      <td><a href="docker/php/Dockerfile#L4">See <code>Dockerfile</code></a></td>
+      <td><a href="../docker/php/Dockerfile#L4">See <code>Dockerfile</code></a></td>
     </tr>
     <tr>
       <td><code>COMPOSER_VERSION</code></td>
