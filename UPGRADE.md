@@ -1,5 +1,9 @@
 # Upgrade
 
+## `0.4.0` to `0.4.1`
+
+Remove `npm update -g npm` from `Dockerfile`.
+
 ## `0.3.x` to `0.4.0`
 
 To prevent issues with Linux, change

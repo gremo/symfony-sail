@@ -159,7 +159,6 @@ RUN \
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_VERSION.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list; \
     apt-get update; \
     apt-get install -y --no-install-recommends nodejs; \
-    npm update -g npm; \
     npm install -g yarn; \
     # Cleanup
     rm -rf /root/.npm; \
