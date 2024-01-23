@@ -1,5 +1,9 @@
 # Upgrade
 
+## `0.4.1` to `0.4.2`
+
+Update the `Dockerfile` to fix `npm` installation error.
+
 ## `0.4.0` to `0.4.1`
 
 Remove `npm update -g npm` from `Dockerfile`.
