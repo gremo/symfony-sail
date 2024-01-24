@@ -1,5 +1,9 @@
 # Upgrade
 
+## `0.4.2` to `0.4.3`
+
+Update the `Dockerfile` (again) to use the new `node` installation method.
+
 ## `0.4.1` to `0.4.2`
 
 Update the `Dockerfile` to fix `npm` installation error.
